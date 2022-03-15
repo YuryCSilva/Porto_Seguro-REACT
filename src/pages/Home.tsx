@@ -1,3 +1,10 @@
+import React from "react";
+import {Header} from "../components/Header/Header"
+
 export function Home(){
-    return<div>Hello World!</div>
+    return(
+        <React.Fragment>
+            <Header />
+        </React.Fragment>
+    )
 }
