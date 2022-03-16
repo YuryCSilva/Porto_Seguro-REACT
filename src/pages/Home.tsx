@@ -1,10 +1,5 @@
-import React from "react";
-import {Header} from "../components/Header/Header"
+import { Header } from "../components/Header";
 
-export function Home(){
-    return(
-        <React.Fragment>
-            <Header />
-        </React.Fragment>
-    )
+export function Home() {
+  return <Header />;
 }
