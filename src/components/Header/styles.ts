@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const Menu = styled.div`
+  z-index: 100;
   display: flex;
   padding:  14px 21px 16px 21px;
   max-height: 60px;
@@ -78,18 +79,24 @@ export const Toggle = styled.a<ToggleProps>`
   }
 `;
 
-export const MenuNav = styled.nav<ToggleProps>`
-  position: fixed;
+interface MenuNavProps {
+  active: boolean;
+}
+
+export const MenuNav = styled.nav<MenuNavProps>`
+  position: absolute;
   width: 100vw;
   height: calc(100% - 60px);
   background-color: #9a6d0c;
-  right: ${(props) => (props.active ? "0" : "-100%")};
   top: 60px;
+  left: 0;
+  visibility: ${(props) => (props.active ? "visible" : "hidden")}; 
   color: #fff;
   display: flex;
+  opacity: ${(props) => (props.active ? "1" : "0")};
   flex-direction: column;
   justify-content: space-between;
-  transition: 0.6s;
+  transition: .3s;
 
   ul {
     li {
@@ -113,10 +120,11 @@ export const MenuNav = styled.nav<ToggleProps>`
     position: static;
     width: 100%;
     height: 92px;
-    overflow: hidden;
     background-color: #fff;
     color: #d6a430;
     flex-direction: row-reverse;
+    opacity: 1;
+    visibility: visible;
 
     ul {
       display: flex;

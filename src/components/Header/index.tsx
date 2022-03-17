@@ -5,7 +5,7 @@ import PortoSeguroLogo from "../../assets/img/mobile/porto_seguro.png";
 import PortoSeguroLogoDesktop from "../../assets/img/desktop/porto_seguro.png";
 import Button from "../Button";
 import { ContentsMenu, Menu, MenuNav, Toggle } from "./styles";
-import { ImageChoice } from "./ImageChoice";
+import { ImageChoice } from "../ImageChoice";
 
 export default function Header() {
   const [clickUser, setClickUser] = useState(false);
@@ -29,7 +29,7 @@ export default function Header() {
         <MenuNav active={clickUser}>
           <ul>
             <li>
-              <a>
+              <a onClick={(event) => console.log('fui clickado')}>
                 <span>Sobre</span>
               </a>
             </li>
