@@ -1,13 +1,17 @@
 import { createGlobalStyle } from "styled-components";
 
-const GlobalStyle =  createGlobalStyle`
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
 
+export default createGlobalStyle`
     *{
         margin: 0;
         padding: 0;
         font-family: 'Open Sans', sans-serif;
         box-sizing: border-box;
+    }
+
+    body{
+        height: 100vh;
+        
     }
 
     a{
@@ -17,6 +21,9 @@ const GlobalStyle =  createGlobalStyle`
     li{
         list-style: none;
     }
-`;
 
-export default GlobalStyle;
+    button{
+        border: none;
+        box-sizing: border-box
+    }
+`;
