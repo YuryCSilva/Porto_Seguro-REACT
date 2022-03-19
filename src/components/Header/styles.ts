@@ -2,14 +2,18 @@ import styled, { keyframes } from "styled-components";
 
 export const Menu = styled.div`
   z-index: 100;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
   display: flex;
-  padding:  14px 21px 16px 21px;
+  padding: 14px 21px 16px 21px;
   max-height: 60px;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-between;
   box-shadow: 0px 5px 6px #00000024;
-  background: #FEFEFE 0% 0% no-repeat padding-box;
+  background: #fefefe 0% 0% no-repeat padding-box;
 
   text-transform: uppercase;
 
@@ -22,20 +26,22 @@ export const Menu = styled.div`
   }
 
   @media (min-width: 1024px) {
+    position: fixed;
     max-height: 92px;
-    justify-content: space-between;
-    padding: 24px 50px 25px 50px;
+    padding: 24px 30px 25px 30px;
     div.imageContainer {
       display: flex;
       align-items: center;
     }
 
     div.imageContainer picture:first-child {
-      padding-right: 3.84vw;
+      padding-right: 22.5px;
+      padding-left: 20px
+
     }
 
     div.imageContainer picture:nth-child(2) {
-      padding-left: 3.84vw;
+      padding-left: 22.5px;
     }
   }
 `;
@@ -84,19 +90,19 @@ interface MenuNavProps {
 }
 
 export const MenuNav = styled.nav<MenuNavProps>`
-  position: absolute;
+  position: fixed;
   width: 100vw;
   height: calc(100% - 60px);
   background-color: #9a6d0c;
   top: 60px;
   left: 0;
-  visibility: ${(props) => (props.active ? "visible" : "hidden")}; 
+  visibility: ${(props) => (props.active ? "visible" : "hidden")};
   color: #fff;
   display: flex;
   opacity: ${(props) => (props.active ? "1" : "0")};
   flex-direction: column;
   justify-content: space-between;
-  transition: .3s;
+  transition: 0.3s;
 
   ul {
     li {
@@ -118,8 +124,6 @@ export const MenuNav = styled.nav<MenuNavProps>`
 
   @media (min-width: 1024px) {
     position: static;
-    width: 100%;
-    height: 92px;
     background-color: #fff;
     color: #d6a430;
     flex-direction: row-reverse;
@@ -153,11 +157,7 @@ export const MenuNav = styled.nav<MenuNavProps>`
           }
         }
       }
-      li:last-child {
-        a {
-          padding: 12px 0 12px 20px;
-        }
-      }
+    
     }
   }
 `;

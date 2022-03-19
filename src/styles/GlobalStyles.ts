@@ -26,4 +26,8 @@ export default createGlobalStyle`
         border: none;
         box-sizing: border-box
     }
+
+    .bold{
+        font-weight: bold
+    }
 `;
