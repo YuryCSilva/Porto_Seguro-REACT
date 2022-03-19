@@ -175,9 +175,9 @@ export const HospitalsHighlights = styled.div`
     margin: 40px 0px;
     padding: 0 16px;
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: block;
+    
+    
 
     p{
         margin-top: 21px;

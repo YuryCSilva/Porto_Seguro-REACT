@@ -40,7 +40,7 @@ const Main: React.FC = () => {
       <HospitalsHighlights>
         <TitleCard>Hospitais em destaque</TitleCard>
         <p>Contando com os melhores hospitais do Rio de Janeiro, o plano Ouro dispõe para sua empresa as redes mais referenciadas com diversos benefícios para que você tenha um atendimento totalmente personalizado.</p>
-        {}
+        <Cards1></Cards1>
       </HospitalsHighlights>
     </main>
   );

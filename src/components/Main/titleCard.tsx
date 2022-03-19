@@ -16,6 +16,7 @@ const Title = styled.h2`
 const Line = styled.hr`
     border: 1px solid #F7B53D;
     width: 162px;
+    height:2px;
 `;
 
 const TitleCard: React.FC = ({ children }) => (
