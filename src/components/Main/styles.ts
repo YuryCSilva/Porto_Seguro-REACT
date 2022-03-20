@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const ImgSection = styled.div`
         position: relative;
         width: inherit;
@@ -13,6 +12,7 @@ export const ImgSection = styled.div`
         width: 100%;
         height: 100%;
         object-fit: cover;
+        object-position: center top;
         z-index: -1; 
       }
 
@@ -175,14 +175,48 @@ export const HospitalsHighlights = styled.div`
     margin: 40px 0px;
     padding: 0 16px;
     width: 100%;
-    display: block;
-    
-    
+    display: block; 
 
     p{
-        margin-top: 21px;
-        margin-bottom: 21px;
+        margin: 21px 0;
         font: normal normal normal 15px/20px Open Sans, sans-serif;
         color: #4B4B4B;
     }
+
+    @media (min-width: 1024px) {
+        margin: 42px 0px;
+        padding: 0 103px;
+
+        p{
+            margin-top: 19px;
+            margin-bottom: 18px;
+            font: normal normal normal 20px/27px Open Sans, sans-serif;
+            color: #4B4B4B;
+        }
+
+        div{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        div.cardsContainer{
+            gap: 16px;
+        }
+      }
+`;
+
+export const PlansBenefis = styled.div`
+      padding:0 16px;
+
+      @media(min-width: 1024px){
+          padding: 0 103px;
+
+          div.cardsContainer{
+              padding: 0 39px;
+              display: flex;
+              justify-content: space-between;
+              gap:32px;
+          }
+          
+      }
 `

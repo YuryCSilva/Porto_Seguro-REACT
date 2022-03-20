@@ -3,7 +3,7 @@ import NorteSulLogo from "../../assets/img/mobile/logo-Norte-a-Sul.png";
 import NorteSulLogoDesktop from "../../assets/img/desktop/logo-Norte-a-Sul.png";
 import PortoSeguroLogo from "../../assets/img/mobile/porto_seguro.png";
 import PortoSeguroLogoDesktop from "../../assets/img/desktop/porto_seguro.png";
-import Button from "../Buttons/Button1";
+import {Button1} from "../Buttons/";
 import { ContentsMenu, Menu, MenuNav, Toggle } from "./styles";
 import { ImageChoice } from "../ImageChoice";
 
@@ -29,7 +29,7 @@ export default function Header() {
         <MenuNav active={clickUser}>
           <ul>
             <li>
-              <a onClick={(event) => console.log('fui clickado')}>
+              <a>
                 <span>Sobre</span>
               </a>
             </li>
@@ -58,7 +58,7 @@ export default function Header() {
             <span className="textMenu">Fale Conosco Agora Mesmo:</span>
             <span className="textMenu">4020-6440</span>
             <div className="buttonGroup">
-              <Button color="#F7B53D">
+              <Button1 color="#F7B53D">
                 <span>
                   <svg
                     fill="#FFF"
@@ -71,8 +71,8 @@ export default function Header() {
                   </svg>
                 </span>
                 <span>Clique aqui para enviar uma mensagem</span>
-              </Button>
-              <Button color="#F7B53D">
+              </Button1>
+              <Button1 color="#F7B53D">
                 <span>
                   <svg
                     fill="#FFF"
@@ -85,7 +85,7 @@ export default function Header() {
                   </svg>
                 </span>
                 <span>Clique aqui para enviar uma mensagem</span>
-              </Button>
+              </Button1>
             </div>
             <span className="finalText">
               Horário de Atendimento de 8h às 17h

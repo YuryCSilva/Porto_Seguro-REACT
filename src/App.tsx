@@ -1,4 +1,5 @@
 import React from "react";
+import { CreateDataProvider } from "./hooks/userDataCard";
 import { Router } from "./routes/Router";
 import GlobalStyles from "./styles/GlobalStyles";
 
@@ -6,7 +7,9 @@ function App() {
   return (
     <React.Fragment>
       <GlobalStyles />
-      <Router />
+      <CreateDataProvider>
+        <Router />
+      </CreateDataProvider>
     </React.Fragment>
   );
 }
