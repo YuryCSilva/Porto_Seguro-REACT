@@ -172,51 +172,199 @@ export const ImgSection = styled.div`
 `;
 
 export const HospitalsHighlights = styled.div`
-    margin: 40px 0px;
-    padding: 0 16px;
-    width: 100%;
-    display: block; 
+  margin: 40px 0px;
+  padding: 0 16px;
+  width: 100%;
+  display: block;
 
-    p{
-        margin: 21px 0;
-        font: normal normal normal 15px/20px Open Sans, sans-serif;
-        color: #4B4B4B;
+  p {
+    margin: 21px 0;
+    font: normal normal normal 15px/20px Open Sans, sans-serif;
+    color: #4b4b4b;
+  }
+
+  @media (min-width: 1024px) {
+    margin: 42px 0px;
+    padding: 0 103px;
+
+    p {
+      margin-top: 19px;
+      margin-bottom: 18px;
+      font: normal normal normal 20px/27px Open Sans, sans-serif;
+      color: #4b4b4b;
     }
 
-    @media (min-width: 1024px) {
-        margin: 42px 0px;
-        padding: 0 103px;
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
 
-        p{
-            margin-top: 19px;
-            margin-bottom: 18px;
-            font: normal normal normal 20px/27px Open Sans, sans-serif;
-            color: #4B4B4B;
-        }
-
-        div{
-            display: flex;
-            justify-content: space-between;
-        }
-
-        div.cardsContainer{
-            gap: 16px;
-        }
-      }
+    div.cardsContainer {
+      gap: 16px;
+    }
+  }
 `;
 
 export const PlansBenefis = styled.div`
-      padding:0 16px;
+  padding: 0 16px;
 
-      @media(min-width: 1024px){
-          padding: 0 103px;
+  @media (min-width: 1024px) {
+    padding: 0 103px;
 
-          div.cardsContainer{
-              padding: 0 39px;
-              display: flex;
-              justify-content: space-between;
-              gap:32px;
-          }
-          
+    div.cardsContainer {
+      padding: 0 39px;
+      display: flex;
+      justify-content: space-between;
+      gap: 32px;
+    }
+  }
+`;
+
+export const KnowMore = styled.div`
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  div.KnowMoreContent1 {
+    display: flex;
+    margin: 21px 0;
+    img {
+      width: 101.22px;
+      height: 101.23px;
+      margin-right: 12.4px;
+    }
+
+    p {
+      font: normal normal normal 15px/20px Open Sans, sans-serif;
+      letter-spacing: 0px;
+      color: #404040;
+    }
+  }
+  div.KnowMoreContent2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    div.FormDiv {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 26px;
+      label {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        font: normal normal bold 12px/17px Open Sans, sans-serif;
+        color: #e8bb15;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+
+        input {
+          border: 1px solid #9a6d0c;
+          padding: 6px;
+          margin-top: 4px;
+        }
       }
-`
+    }
+
+    img.Recapatcha {
+      width: 100%;
+      height: 101px;
+      margin-bottom: 19px;
+    }
+
+    button {
+      box-shadow: 0px 3px 6px #00000029;
+      font: normal normal 600 15px/20px Open Sans, sans-serif;
+      margin: 0 calc(41px - 16px);
+      padding: 12px 61px 11px 61px;
+      max-height: 100%;
+      letter-spacing: 3px;
+    }
+    span.textMenu:first-child {
+      color: #4b4b4b;
+      letter-spacing: 0px;
+      margin-bottom: 6px;
+    }
+
+    span.textMenu:nth-child(2) {
+      color: #e8bb15;
+      letter-spacing: 0px;
+      margin-bottom: 13px;
+    }
+
+    div.buttonGroup {
+      button {
+        margin: 0;
+        margin-bottom: 26px;
+      }
+
+      button:last-child {
+        margin-bottom: 10px;
+      }
+    }
+    span.finalText {
+      color: #a7a7a7;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 0 103px;
+
+    div.KnowMoreContent1 {
+      margin: 60px 0 83.69px 0;
+      align-items: center;
+
+      img {
+        width: 138.3px;
+        height: 138.3px;
+        margin-right: 41.7px;
+      }
+
+      p {
+        font: normal normal normal 20px/27px Open Sans, sans-serif;
+      }
+    }
+    div.KnowMoreContent2 {
+      flex-direction: row;
+      align-items: center;
+      div.FormDiv {
+        border-right: 1px solid rgba(112,112,112,0.24);
+
+        width: 50%;
+        padding-right: 53.76px;
+        label {
+          font: normal normal bold 18px/24px Open Sans, sans-serif;
+          color: #ecc63c;
+          letter-spacing: 0px;
+
+          input {
+            border: 1px solid #d0bc90;
+            padding: 16.5px;
+            margin-top: 11.48px;
+          }
+        }
+        label:last-child {
+          margin-bottom: 41.37px;
+        }
+
+        img.Recapatcha {
+          width: 214px;
+          height: 63px;
+          margin-bottom: 33.7px;
+        }
+      }
+      div:last-child {
+        width: 407px;
+        margin-left: 53.76px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        div.buttonGroup {
+          width: 407px;
+        }
+      }
+    }
+  }
+`;

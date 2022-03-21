@@ -4,54 +4,61 @@ import { ImageChoice } from "../ImageChoice";
 import {
   HospitalsHighlights,
   ImgSection,
+  KnowMore,
   PlansBenefis,
 } from "./styles";
-import { Button2, Button3 } from "../Buttons";
+import { Button2, Button3, ButtonSubmit } from "../Buttons";
 import TitleCard from "./titleCard";
 import { Cards1, Cards2, Cards3 } from "../Cards";
-import { ReactNode, useEffect, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 import { ContentsDivCard1 } from "../Cards/contentsCard";
-import { useDataCard } from "../../hooks/userDataCard";
+import { useData } from "../../hooks/userData";
 import ImageCard1 from "../../assets/img/mobile/02_Recepcao_principal-860x560@2x.png";
 import ImageCard2 from "../../assets/img/mobile/human-hand-inserting-coin-piggybank@2x.png";
+import PhoneCall from "../../assets/img/mobile/phone-call.svg";
 import ModalContainer1 from "./Modal";
+import ContentsMenu from "../CallWithUs";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import ReCAPTCHA from "react-google-recaptcha";
+import React from "react";
+
+type Inputs = {
+  name: string;
+  phone: string;
+  email: string;
+  recaptcha: boolean;
+};
 
 const Main: React.FC = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
+    
+  const {data} = useData();
 
-  console.log(openModal);
+  const schema = yup
+    .object({
+      name: yup.string().required(),
+      phone: yup.string().required(),
+      email: yup.string().required(),
+      recaptcha: yup.boolean().required()
+    })
+    .required();
 
-  const oi = [
-    {
-      id: "7",
-      createdAt: "2021-06-02",
-      name: "Hospital São João",
-      image: "http://placeimg.com/640/480",
-      detail:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centur",
-      address: "Rua tal tal ",
-      phone: "8788-8988",
-    },
-    {
-      createdAt: "2021-06-19",
-      name: "Hospital tal",
-      image: "http://placeimg.com/640/480",
-      detail: "Hospital com atendimento rápido.",
-      address: "rua",
-      phone: "5588994411",
-      id: "8",
-    },
-    {
-      createdAt: "2021-06-23",
-      name: "Teste Hospital",
-      image: "http://placeimg.com/640/480",
-      detail: "adasdsadas",
-      address: "rua tal",
-      phone: "3213121321",
-      id: "10",
-    },
-  ];
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<Inputs>({ resolver: yupResolver(schema) });
+  
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+      console.log(data);
+      reset();
+  };
+
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -64,10 +71,16 @@ const Main: React.FC = () => {
     return () => window.removeEventListener("resize", updateWindowDimensions);
   }, []);
 
-  const { data } = useDataCard();
+  useEffect(() => {
+    register('recaptcha' , { required: true });
+  });
 
   const userClickHandle = () => {
     setOpenModal(!openModal);
+  };
+
+  const handleRecaptcha = () => {
+    setValue("recaptcha", true);
   };
 
   const active = width > 1024 && data !== null;
@@ -115,8 +128,9 @@ const Main: React.FC = () => {
           personalizado.
         </p>
         <div className="cardsContainer">
-          {oi.map((element) => (
-            <Cards1 values={element} key={element.id} />
+          {data?.map((element, index) => (
+
+            index < 3 && <Cards1 values={element} key={element.id} />
           ))}
         </div>
         {active && <ContentsDivCard1 active={active} />}
@@ -135,7 +149,7 @@ const Main: React.FC = () => {
                 toda a comodidade que você e seus funcionários precisam.
               </p>
               <Button3 onClick={userClickHandle} color="#9A6D0C">
-                Veja a lista completa de hospitais
+                <>Veja a lista completa de hospitais</>
               </Button3>
             </div>
           </Cards2>
@@ -185,8 +199,70 @@ const Main: React.FC = () => {
             </ul>
           </li>
         </ul>
-
       </ModalContainer1>
+
+      <KnowMore>
+        <TitleCard>Quer Saber mais?</TitleCard>
+        <div className="KnowMoreContent1">
+          <img src={PhoneCall} alt="Telefone Ligando" />
+          <p>
+            Ainda sobrou alguma dúvida sobre qual o melhor Plano para sua
+            empresa? Envie seus dados e deixe que a NS Benefícios entrará em
+            contato assim que possível.
+          </p>
+        </div>
+        <div className="KnowMoreContent2">
+          <div className="FormDiv">
+            <form method="POST" onSubmit={handleSubmit(onSubmit)}>
+              <label>
+                Nome:
+                <input
+                  type="text"
+                  {...register("name")}
+                  name="name"
+                  placeholder="Seu nome"
+                />
+                {errors.name && (
+                  <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
+                )}
+              </label>
+              <label>
+                Telefone:
+                <input
+                  {...register("phone")}
+                  type="phone"
+                  name="phone"
+                  placeholder="(COD) 99999-9999"
+                />
+                {errors.phone && (
+                  <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
+                )}
+              </label>
+              <label>
+                E-mail:
+                <input
+                  {...register("email")}
+                  type="email"
+                  name="email"
+                  placeholder="seuemail@email.com"
+                />
+                {errors.email && (
+                  <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
+                )}
+              </label>
+              <ReCAPTCHA
+                sitekey="6LdiqfgeAAAAAAgeuSTWGGsGrqDtw3vKILA3jLpr"
+                onChange={handleRecaptcha}
+              /> 
+              {errors.recaptcha && (
+                <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
+              )}
+              <ButtonSubmit color="#F7B53D">Enviar Contato</ButtonSubmit>
+            </form>
+          </div>
+          <ContentsMenu />
+        </div>
+      </KnowMore>
     </main>
   );
 };

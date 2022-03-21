@@ -1,3 +1,4 @@
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import styled from "styled-components";
 
 interface ContainerProps {
@@ -47,13 +48,13 @@ export const Container2 = styled.button<ContainerProps>`
   }
 `;
 
-interface ContainerProps3 {
+interface ContainerProps3 extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   color: string;
-  onClick: () => void;
+  children: ReactNode;
 }
 
 export const Container3 = styled.button<ContainerProps3>`
-  background-color: ${(props) => props.color};
+  background-color: ${({ color }) => color};
   border-radius: 16px;
   padding: 9px 36px 9px 35px;
   max-height: 31px;
@@ -77,3 +78,8 @@ export const Container3 = styled.button<ContainerProps3>`
     letter-spacing: 2.1px;
 
 `;
+
+interface ContainerProps4 {
+  color: string;
+}
+export const Container4 = styled(Container3)<ContainerProps4>``;

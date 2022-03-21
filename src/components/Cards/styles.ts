@@ -72,6 +72,7 @@ export const Card1Container = styled.div<Card1ContainerProps>`
   border-radius: 12px;
   margin-bottom: 23px;
   overflow: hidden;
+  padding-bottom: 11.67px;
 
   img {
       
