@@ -3,7 +3,6 @@ import NorteSulLogo from "../../assets/img/mobile/logo-Norte-a-Sul.png";
 import NorteSulLogoDesktop from "../../assets/img/desktop/logo-Norte-a-Sul.png";
 import PortoSeguroLogo from "../../assets/img/mobile/porto_seguro.png";
 import PortoSeguroLogoDesktop from "../../assets/img/desktop/porto_seguro.png";
-import { Button1 } from "../Buttons/";
 import { Menu, MenuNav, Toggle } from "./styles";
 import { ImageChoice } from "../ImageChoice";
 import ContentsMenu from "../CallWithUs";

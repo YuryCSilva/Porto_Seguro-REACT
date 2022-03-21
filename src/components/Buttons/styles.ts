@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import { ReactNode } from "react";
 import styled from "styled-components";
 
 interface ContainerProps {
@@ -15,7 +15,7 @@ export const Container = styled.button<ContainerProps>`
   width: 100%;
   align-items: center;
   box-shadow: 0px 3px 6px #00000029;
-  justify-content: center;
+  justify-content: flex-start;
   cursor: pointer;
 
   span:nth-child(2) {
@@ -63,6 +63,13 @@ export const Container3 = styled.button<ContainerProps3>`
   color: #fff;
   text-transform: uppercase;
   cursor: pointer;
+  display: flex;
+
+  img{
+    width: 12px;
+    height: 13px;
+    margin-right: 5px;
+  }
 
   @media (min-width: 1024px){
     padding: 15px 30px;
@@ -71,12 +78,16 @@ export const Container3 = styled.button<ContainerProps3>`
     width: auto;
     border-radius: 31px;
     letter-spacing: 1.5px;
+    img{
+      width: 18.5px;
+      height: 20px;
+      margin-right: 8px;
+    }
   }
 
   @media (min-width: 1366px){
     font: normal normal 600 21px/28px Open Sans, sans-serif;
     letter-spacing: 2.1px;
-
 `;
 
 interface ContainerProps4 {

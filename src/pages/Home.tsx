@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Header from "../components/Header";
 import Main from "../components/Main";
 import API from "../services/API";
-import axios from 'axios';
 import { useData } from "../hooks/userData";
 
 export function Home() {

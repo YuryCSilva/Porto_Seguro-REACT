@@ -208,14 +208,19 @@ export const HospitalsHighlights = styled.div`
 export const PlansBenefis = styled.div`
   padding: 0 16px;
 
+  button{
+    justify-content: center;
+  }
+
   @media (min-width: 1024px) {
     padding: 0 103px;
 
     div.cardsContainer {
       padding: 0 39px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       gap: 32px;
+      margin-bottom: 60px;
     }
   }
 `;

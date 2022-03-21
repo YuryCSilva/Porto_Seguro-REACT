@@ -10,7 +10,7 @@ import {
 import { Button2, Button3, ButtonSubmit } from "../Buttons";
 import TitleCard from "./titleCard";
 import { Cards1, Cards2, Cards3 } from "../Cards";
-import { RefObject, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { ContentsDivCard1 } from "../Cards/contentsCard";
 import { useData } from "../../hooks/userData";
 import ImageCard1 from "../../assets/img/mobile/02_Recepcao_principal-860x560@2x.png";

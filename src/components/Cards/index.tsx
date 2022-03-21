@@ -1,9 +1,7 @@
 import { Card1Container, Card2Container, Card3Container } from "./styles";
-import Card from "../../assets/img/mobile/Grupo de máscara 6.png";
 import { useEffect, useState } from "react";
 import { ContentsDivCard1 } from "./contentsCard";
 import { useDataCard } from "../../hooks/userDataCard";
-import ImageCard1 from "../../assets/img/mobile/02_Recepcao_principal-860x560.png"
 
 interface DataProps {
   id: string;
