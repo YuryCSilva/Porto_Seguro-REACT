@@ -38,27 +38,27 @@ export default function Header() {
         <MenuNav active={clickUser}>
           <ul>
             <li>
-              <Link smooth duration={500} to="sobre">
+              <Link smooth duration={500} to="sobre" style={{cursor: 'pointer'}}>
                 <span>Sobre</span>
               </Link>
             </li>
             <li>
-              <Link smooth duration={500} to="hospitais">
+              <Link smooth duration={500} to="hospitais" style={{cursor: 'pointer'}}>
                 <span>Hospitais</span>
               </Link>
             </li>
             <li>
-              <Link smooth duration={500} to="beneficios">
+              <Link smooth duration={500} to="beneficios" style={{cursor: 'pointer'}}>
                 <span>Benefícios</span>
               </Link>
             </li>
             <li>
-              <Link smooth duration={500} to="servicosEspeciais">
+              <Link smooth duration={500} to="servicosEspeciais" style={{cursor: 'pointer'}}>
                 <span>Serviços especiais</span>
               </Link>
             </li>
             <li>
-              <Link smooth duration={500} to="contato">
+              <Link smooth duration={500} to="contato" style={{cursor: 'pointer'}}>
                 <span>Contato</span>
               </Link>
             </li>
