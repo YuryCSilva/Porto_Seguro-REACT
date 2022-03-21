@@ -24,6 +24,7 @@ export const ModalContainer = styled.div<ModalProps>`
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 14px;
 
     button.closeModal {
       margin-top: 18px;
@@ -62,6 +63,7 @@ export const ModalContainer = styled.div<ModalProps>`
         font: normal normal bold 19px/26px Open Sans, sans-serif;
         letter-spacing: 0px;
         color: #e8bb15;
+        margin-bottom: 10px;
       }
       li {
         font: normal normal normal 12px/20px Open Sans;

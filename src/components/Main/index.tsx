@@ -23,6 +23,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import ReCAPTCHA from "react-google-recaptcha";
 import React from "react";
+import { useDataCard } from "../../hooks/userDataCard";
 
 type Inputs = {
   name: string;
@@ -34,15 +35,16 @@ type Inputs = {
 const Main: React.FC = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
-    
-  const {data} = useData();
+
+  const { data } = useData();
+  const { dataCard } = useDataCard();
 
   const schema = yup
     .object({
       name: yup.string().required(),
       phone: yup.string().required(),
       email: yup.string().required(),
-      recaptcha: yup.boolean().required()
+      recaptcha: yup.boolean().required(),
     })
     .required();
 
@@ -53,12 +55,10 @@ const Main: React.FC = () => {
     setValue,
     formState: { errors },
   } = useForm<Inputs>({ resolver: yupResolver(schema) });
-  
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-      console.log(data);
-      reset();
-  };
 
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    reset();
+  };
 
   useEffect(() => {
     const updateWindowDimensions = () => {
@@ -72,7 +72,7 @@ const Main: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    register('recaptcha' , { required: true });
+    register("recaptcha", { required: true });
   });
 
   const userClickHandle = () => {
@@ -83,7 +83,7 @@ const Main: React.FC = () => {
     setValue("recaptcha", true);
   };
 
-  const active = width > 1024 && data !== null;
+  const active = width > 1024 && dataCard !== null;
 
   return (
     <main>
@@ -119,7 +119,7 @@ const Main: React.FC = () => {
         </div>
       </ImgSection>
 
-      <HospitalsHighlights>
+      <HospitalsHighlights id="hospitais">
         <TitleCard>Hospitais em destaque</TitleCard>
         <p>
           Contando com os melhores hospitais do Rio de Janeiro, o plano Ouro
@@ -128,15 +128,15 @@ const Main: React.FC = () => {
           personalizado.
         </p>
         <div className="cardsContainer">
-          {data?.map((element, index) => (
-
-            index < 3 && <Cards1 values={element} key={element.id} />
-          ))}
+          {data?.map(
+            (element, index) =>
+              index < 3 && <Cards1 values={element} key={element.id} />
+          )}
         </div>
         {active && <ContentsDivCard1 active={active} />}
       </HospitalsHighlights>
 
-      <PlansBenefis>
+      <PlansBenefis id="beneficios">
         <TitleCard>Benefícios do Plano</TitleCard>
         <div className="cardsContainer">
           <Cards2>
@@ -201,7 +201,7 @@ const Main: React.FC = () => {
         </ul>
       </ModalContainer1>
 
-      <KnowMore>
+      <KnowMore id="contato">
         <TitleCard>Quer Saber mais?</TitleCard>
         <div className="KnowMoreContent1">
           <img src={PhoneCall} alt="Telefone Ligando" />
@@ -250,13 +250,15 @@ const Main: React.FC = () => {
                   <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
                 )}
               </label>
-              <ReCAPTCHA
-                sitekey="6LdiqfgeAAAAAAgeuSTWGGsGrqDtw3vKILA3jLpr"
-                onChange={handleRecaptcha}
-              /> 
-              {errors.recaptcha && (
-                <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
-              )}
+              <div className="recaptcha">
+                <ReCAPTCHA
+                  sitekey="6LdiqfgeAAAAAAgeuSTWGGsGrqDtw3vKILA3jLpr"
+                  onChange={handleRecaptcha}
+                />
+                {errors.recaptcha && (
+                  <p style={{ color: "red" }}>Esse Campo é obrigatório</p>
+                )}
+              </div>
               <ButtonSubmit color="#F7B53D">Enviar Contato</ButtonSubmit>
             </form>
           </div>

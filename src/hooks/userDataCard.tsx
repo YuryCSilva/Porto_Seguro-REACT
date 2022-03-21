@@ -15,22 +15,22 @@ interface DataProps{
 }
 
 type ContextTypes = {
-    data: DataProps | null;
+    dataCard: DataProps | null;
     HandleChangeData: (value: DataProps | null) => void;
 }
 
 const Context = createContext({} as ContextTypes);
 
 export function CreateDataProvider({children}: ChildrenProps) {
-    const [data, setData] = useState<DataProps | null>(null);
+    const [dataCard, setDataCard] = useState<DataProps | null>(null);
 
     const HandleChangeData = useCallback((value: DataProps | null) => {
-        setData(value);
+        setDataCard(value);
       }, []); 
 
       const value = useMemo(() => {
-        return { HandleChangeData, data };
-      }, [HandleChangeData, data]);
+        return { HandleChangeData, dataCard };
+      }, [HandleChangeData, dataCard]);
 
       return (
         <Context.Provider value={value}>

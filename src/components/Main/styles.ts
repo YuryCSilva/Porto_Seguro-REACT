@@ -245,31 +245,39 @@ export const KnowMore = styled.div`
     flex-direction: column;
     width: 100%;
     div.FormDiv {
-      display: flex;
-      flex-direction: column;
       align-items: center;
       margin-bottom: 26px;
-      label {
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        font: normal normal bold 12px/17px Open Sans, sans-serif;
-        color: #e8bb15;
-        text-transform: uppercase;
-        margin-bottom: 20px;
 
-        input {
-          border: 1px solid #9a6d0c;
-          padding: 6px;
-          margin-top: 4px;
+      form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+         align-items: center;
+}
+        label {
+          display: flex;
+          width: 100%;
+          flex-direction: column;
+          font: normal normal bold 12px/17px Open Sans, sans-serif;
+          color: #e8bb15;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+
+          input {
+            border: 1px solid #9a6d0c;
+            padding: 6px;
+            margin-top: 4px;
+          }
         }
       }
     }
 
-    img.Recapatcha {
-      width: 100%;
-      height: 101px;
+    div.recaptcha {
       margin-bottom: 19px;
+      div {
+        display: flex;
+        justify-content: center;
+      }
     }
 
     button {
@@ -296,6 +304,9 @@ export const KnowMore = styled.div`
       button {
         margin: 0;
         margin-bottom: 26px;
+        font: normal normal bold 15px/20px Open Sans, sans-serif;
+        letter-spacing: 0px;
+        justify-content: flex-start
       }
 
       button:last-child {
@@ -329,31 +340,41 @@ export const KnowMore = styled.div`
       flex-direction: row;
       align-items: center;
       div.FormDiv {
-        border-right: 1px solid rgba(112,112,112,0.24);
-
+        border-right: 1px solid rgba(112, 112, 112, 0.24);
         width: 50%;
         padding-right: 53.76px;
-        label {
-          font: normal normal bold 18px/24px Open Sans, sans-serif;
-          color: #ecc63c;
-          letter-spacing: 0px;
+        form {
+          width: 100%;
 
-          input {
-            border: 1px solid #d0bc90;
-            padding: 16.5px;
-            margin-top: 11.48px;
+          div.recaptcha {
+            margin-bottom: 19px;
+            div {
+              margin-left: 0;
+              display: flex;
+              justify-content: center;
+            }
+            p{
+              text-align: center;
+            }
+          }
+
+          label {
+            font: normal normal bold 18px/24px Open Sans, sans-serif;
+            color: #ecc63c;
+            letter-spacing: 0px;
+
+            input {
+              border: 1px solid #d0bc90;
+              padding: 16.5px;
+              margin-top: 11.48px;
+            }
+          }
+          label:last-child {
+            margin-bottom: 41.37px;
           }
         }
-        label:last-child {
-          margin-bottom: 41.37px;
-        }
-
-        img.Recapatcha {
-          width: 214px;
-          height: 63px;
-          margin-bottom: 33.7px;
-        }
       }
+
       div:last-child {
         width: 407px;
         margin-left: 53.76px;
